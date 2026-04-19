@@ -738,17 +738,9 @@
                     <div class="contact-info">
                         <h3>Correo Electrónico</h3>
                         <p>Escríbenos directamente para consultas o colaboraciones</p>
-                        <div class="email-buttons">
-                            <a href="mailto:soyubv@gmail.com" class="contact-btn email-btn" onclick="handleEmailClick(event)">
-                                <i class="fas fa-envelope"></i> Enviar correo
-                            </a>
-                            <button class="contact-btn copy-btn" onclick="copyEmail()">
-                                <i class="fas fa-copy"></i> Copiar email
-                            </button>
-                        </div>
-                        <div class="email-display">
-                            <code id="emailText">soyubv@gmail.com</code>
-                        </div>
+                        <a href="mailto:soyubv@gmail.com" class="contact-btn email-btn">
+                            <i class="fas fa-envelope"></i> Enviar correo
+                        </a>
                     </div>
                 </div>
             </div>
@@ -952,50 +944,6 @@ function showToast(msg) {
     toast.textContent = msg;
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 4000);
-}
-
-// ── Funciones para email ──
-function handleEmailClick(e) {
-    // Intentar abrir cliente de correo
-    try {
-        window.location.href = 'mailto:soyubv@gmail.com';
-    } catch (error) {
-        // Si falla, mostrar mensaje
-        e.preventDefault();
-        showToast('No se pudo abrir el cliente de correo. Usa el botón "Copiar email" o escribe: soyubv@gmail.com');
-    }
-}
-
-function copyEmail() {
-    const email = 'soyubv@gmail.com';
-    
-    // Método moderno
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(email).then(() => {
-            showToast('¡Email copiado! Pégalo en tu cliente de correo: ' + email);
-        }).catch(() => {
-            fallbackCopyEmail(email);
-        });
-    } else {
-        fallbackCopyEmail(email);
-    }
-}
-
-function fallbackCopyEmail(email) {
-    // Método alternativo para navegadores antiguos
-    const textArea = document.createElement('textarea');
-    textArea.value = email;
-    document.body.appendChild(textArea);
-    textArea.select();
-    
-    try {
-        document.execCommand('copy');
-        showToast('¡Email copiado! Pégalo en tu cliente de correo: ' + email);
-    } catch (err) {
-        showToast('Email: ' + email + ' (cópialo manualmente)');
-    }
-    
-    document.body.removeChild(textArea);
 }
 </script>
 </body>
