@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Luces del Cementerio · UBV</title>
+    <link rel="icon" type="image/x-icon" href="ubv.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo" onclick="showPage('inicio')">
+            <img src="ubv.png" alt="UBV" class="logo-img" onerror="this.style.display='none'">
+            <div>
+                <h3>UBV · Estudios Jurídicos</h3>
+                <p>Universidad Bolivariana de Venezuela</p>
+            </div>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" onclick="showPage('inicio')" data-page="inicio" class="nav-link active-link"><i class="fas fa-home"></i> Inicio</a></li>
+            <li><a href="#" onclick="showPage('comunidad')" data-page="comunidad" class="nav-link"><i class="fas fa-people-group"></i> Comunidad</a></li>
+            <li><a href="#" onclick="showPage('proyecto')" data-page="proyecto" class="nav-link"><i class="fas fa-road"></i> El Proyecto</a></li>
+            <li><a href="#" onclick="showPage('agradecimiento')" data-page="agradecimiento" class="nav-link"><i class="fas fa-heart"></i> Agradecimiento UBV</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ===================== PÁGINA: INICIO ===================== -->
+<div id="page-inicio" class="page active-page">
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="badge"><i class="fas fa-star"></i> PROYECTO COMUNITARIO · UBV 2026</span>
+                <h1>Comunidad<br><span class="highlight-gradient">Las Luces del<br>Cementerio</span></h1>
+                <p>La Universidad Bolivariana de Venezuela, con orgullo y gratitud, dedica este espacio digital a la comunidad que abrió sus puertas y corazones. Un legado para las generaciones que vienen.</p>
+                <div class="btn-group">
+                    <button class="btn-primary" onclick="showPage('comunidad')">
+                        <i class="fas fa-people-group"></i> Espacio Comunidad
+                    </button>
+                    <button class="btn-outline" onclick="scrollToSection('como-funciona')">
+                        <i class="fas fa-info-circle"></i> ¿Cómo funciona?
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="ubv.png" alt="UBV Las Luces del Cementerio" onerror="this.src='https://placehold.co/520x400/0a2a4e/ffffff?text=UBV+%E2%9D%A4+Comunidad'">
+                <div class="hero-badge-float">
+                    <i class="fas fa-handshake"></i> Juntos construimos
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENSAJE DE AGRADECIMIENTO -->
+    <section class="gratitude-banner">
+        <div class="container">
+            <div class="gratitude-card">
+                <div class="gratitude-icon"><i class="fas fa-heart"></i></div>
+                <div class="gratitude-text">
+                    <h2>Gracias, Comunidad Las Luces del Cementerio</h2>
+                    <p>Su acogida, disposición y colaboración hicieron posible este proyecto. La UBV les obsequia esta plataforma como símbolo de unión, continuidad y compromiso con el bienestar colectivo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA ESTA WEB -->
+    <section id="como-funciona" class="how-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-map"></i> GUÍA DE USO</span>
+                <h2>¿Cómo funciona esta web?</h2>
+                <p class="section-desc">Esta plataforma fue diseñada pensando en ustedes. Aquí encontrarán todo lo que necesitan en un solo lugar, de forma sencilla y accesible.</p>
+            </div>
+            <div class="how-grid">
+                <div class="how-card">
+                    <div class="how-icon blue-grad">
+                        <i class="fas fa-house-chimney"></i>
+                    </div>
+                    <h3>Página Principal</h3>
+                    <p>Aquí encontrarás el mensaje de bienvenida, el propósito de esta web y la guía de navegación. Es el punto de partida para conocer todo lo que ofrecemos.</p>
+                    <span class="how-tag">Estás aquí</span>
+                </div>
+                <div class="how-card">
+                    <div class="how-icon teal-grad">
+                        <i class="fas fa-people-group"></i>
+                    </div>
+                    <h3>Espacio Comunidad</h3>
+                    <p>Un espacio exclusivo para los vecinos. Podrás dejar tu voz, solicitar atención con líderes comunitarios, jueces de paz, jefes de calle, y plantear tus inquietudes.</p>
+                    <button class="how-btn" onclick="showPage('comunidad')">Ir a Comunidad <i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="how-card">
+                    <div class="how-icon orange-grad">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3>El Proyecto</h3>
+                    <p>Conoce el paso a paso de cómo se construyó este proyecto. El esfuerzo, la dedicación y el trabajo constante al servicio de la comunidad y la sociedad.</p>
+                    <button class="how-btn orange-btn" onclick="showPage('proyecto')">Ver el Proceso <i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="how-card">
+                    <div class="how-icon gold-grad">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Agradecimiento UBV</h3>
+                    <p>Un reconocimiento especial a la Universidad Bolivariana de Venezuela, a sus docentes y estudiantes que hicieron posible este proyecto comunitario.</p>
+                    <button class="how-btn" onclick="showPage('agradecimiento')">Ver Agradecimiento <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEGADO -->
+    <section class="legacy-section">
+        <div class="container">
+            <div class="legacy-inner">
+                <div class="legacy-text">
+                    <span class="section-tag light"><i class="fas fa-seedling"></i> LEGADO</span>
+                    <h2 class="light-h2">Un legado para las cortes que vienen</h2>
+                    <p>Esta página no es solo un proyecto académico. Es una herramienta viva que quedará en manos de la comunidad y servirá de guía para los futuros estudiantes de la UBV que continúen este camino.</p>
+                    <ul class="legacy-list">
+                        <li><i class="fas fa-check-circle"></i> Continuidad del proyecto comunitario</li>
+                        <li><i class="fas fa-check-circle"></i> Participación activa de los vecinos</li>
+                        <li><i class="fas fa-check-circle"></i> Comunicación directa con líderes</li>
+                        <li><i class="fas fa-check-circle"></i> Memoria histórica del trabajo realizado</li>
+                    </ul>
+                </div>
+                <div class="legacy-quote">
+                    <i class="fas fa-quote-left"></i>
+                    <blockquote>"La educación es el arma más poderosa que puedes usar para cambiar el mundo."</blockquote>
+                    <cite>— Nelson Mandela</cite>
+                    <div class="bible-verse"><i class="fas fa-dove"></i> Ezequiel 3:9 · "Te haré fuerte como la roca"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA PREVIEW -->
+    <section class="gallery-preview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-camera"></i> GALERÍA</span>
+                <h2>Momentos del Proyecto</h2>
+                <p class="section-desc">Imágenes que capturan el trabajo, la dedicación y el encuentro entre la UBV y la comunidad.</p>
+            </div>
+            <div class="gallery-grid" id="galleryGrid"></div>
+        </div>
+    </section>
+
+</div>
+<!-- FIN PÁGINA INICIO -->
+
+
+<!-- ===================== PÁGINA: COMUNIDAD ===================== -->
+<div id="page-comunidad" class="page">
+
+    <section class="page-hero comunidad-hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <span class="badge"><i class="fas fa-people-group"></i> ESPACIO COMUNITARIO</span>
+            <h1 class="page-title">Tu Voz, <span class="highlight-gradient">Tu Comunidad</span></h1>
+            <p class="page-subtitle">Este es tu espacio. Aquí puedes comunicarte, solicitar atención y hacer escuchar tu voz a los líderes de tu comunidad.</p>
+        </div>
+    </section>
+
+    <section class="community-section">
+        <div class="container">
+            <div class="community-grid">
+
+                <!-- BUZÓN DE VOZ -->
+                <div class="comm-card">
+                    <div class="comm-card-header blue-grad">
+                        <i class="fas fa-microphone-lines"></i>
+                        <h3>Buzón de Voz Comunitario</h3>
+                    </div>
+                    <div class="comm-card-body">
+                        <p>Deja tu mensaje, inquietud o propuesta. Será recibido por los representantes de la comunidad.</p>
+                        <form class="comm-form" onsubmit="submitForm(event, 'buzon')">
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> Nombre completo</label>
+                                <input type="text" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-phone"></i> Teléfono / WhatsApp</label>
+                                <input type="tel" placeholder="04XX-XXXXXXX">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-map-marker-alt"></i> Dirección / Sector</label>
+                                <input type="text" placeholder="Tu calle o sector">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-comment-dots"></i> Tu mensaje</label>
+                                <textarea rows="4" placeholder="Escribe aquí tu inquietud, propuesta o comentario..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary full-btn">
+                                <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- SOLICITAR CITA -->
+                <div class="comm-card">
+                    <div class="comm-card-header teal-grad">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Solicitar Cita o Atención</h3>
+                    </div>
+                    <div class="comm-card-body">
+                        <p>Agenda una reunión con los líderes comunitarios: jefes de calle, jueces de paz u otras autoridades.</p>
+                        <form class="comm-form" onsubmit="submitForm(event, 'cita')">
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> Nombre completo</label>
+                                <input type="text" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-phone"></i> Teléfono / WhatsApp</label>
+                                <input type="tel" placeholder="04XX-XXXXXXX" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-user-tie"></i> ¿Con quién deseas la cita?</label>
+                                <select required>
+                                    <option value="">Selecciona...</option>
+                                    <option>Jefe de Calle</option>
+                                    <option>Juez de Paz</option>
+                                    <option>Consejo Comunal</option>
+                                    <option>Comité de Salud</option>
+                                    <option>Otro representante</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-calendar-alt"></i> Fecha preferida</label>
+                                <input type="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-align-left"></i> Motivo de la cita</label>
+                                <textarea rows="3" placeholder="Describe brevemente el motivo..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary full-btn teal-btn">
+                                <i class="fas fa-calendar-plus"></i> Solicitar Cita
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PREGUNTAS FRECUENTES -->
+            <div class="faq-section">
+                <div class="section-header" style="margin-top:3rem;">
+                    <span class="section-tag"><i class="fas fa-circle-question"></i> PREGUNTAS FRECUENTES</span>
+                    <h2>¿Tienes dudas?</h2>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-q"><i class="fas fa-chevron-right faq-icon"></i> ¿Cuándo recibiré respuesta a mi mensaje?</div>
+                        <div class="faq-a">Los representantes comunitarios revisarán los mensajes y se comunicarán contigo en un plazo de 24 a 72 horas hábiles.</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-q"><i class="fas fa-chevron-right faq-icon"></i> ¿Mis datos están seguros?</div>
+                        <div class="faq-a">Sí. Tu información es confidencial y solo será utilizada para gestionar tu solicitud o mensaje.</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-q"><i class="fas fa-chevron-right faq-icon"></i> ¿Puedo solicitar cita para un grupo de vecinos?</div>
+                        <div class="faq-a">Por supuesto. Indícalo en el campo de motivo y especifica cuántas personas asistirán aproximadamente.</div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-q"><i class="fas fa-chevron-right faq-icon"></i> ¿Quién administra esta plataforma?</div>
+                        <div class="faq-a">Esta plataforma fue creada por estudiantes de la UBV y es administrada por los líderes comunitarios de Las Luces del Cementerio.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+<!-- FIN PÁGINA COMUNIDAD -->
+
+
+<!-- ===================== PÁGINA: EL PROYECTO ===================== -->
+<div id="page-proyecto" class="page">
+
+    <section class="page-hero proyecto-hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <span class="badge"><i class="fas fa-road"></i> PROCESO DE CONSTRUCCIÓN</span>
+            <h1 class="page-title">El <span class="highlight-gradient">Proyecto</span></h1>
+            <p class="page-subtitle">Un recorrido por cada etapa, cada esfuerzo y cada momento que hizo posible este trabajo al servicio de la comunidad Las Luces del Cementerio.</p>
+        </div>
+    </section>
+
+    <section class="project-timeline">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-timeline"></i> CRONOLOGÍA</span>
+                <h2>Paso a paso del proyecto</h2>
+                <p class="section-desc">Desde la concepción de la idea hasta la entrega final, cada fase fue ejecutada con dedicación y compromiso social.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker phase1-grad">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge">FASE 1</div>
+                        <h3>Concepción e Investigación</h3>
+                        <p class="timeline-date"><i class="fas fa-calendar"></i> Enero - Febrero 2026</p>
+                        <p>Identificación de las necesidades comunitarias, análisis del marco legal y diseño de la propuesta inicial. Reuniones con líderes comunitarios para entender las problemáticas locales.</p>
+                        <div class="timeline-materials">
+                            <span class="material-tag"><i class="fas fa-file-alt"></i> Diagnóstico inicial</span>
+                            <span class="material-tag"><i class="fas fa-users"></i> Entrevistas</span>
+                            <span class="material-tag"><i class="fas fa-map"></i> Mapeo comunitario</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker phase2-grad">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge">FASE 2</div>
+                        <h3>Acercamiento Comunitario</h3>
+                        <p class="timeline-date"><i class="fas fa-calendar"></i> Marzo 2026</p>
+                        <p>Primeras visitas a la comunidad, presentación del equipo UBV, establecimiento de vínculos de confianza y validación de la propuesta con los vecinos y líderes locales.</p>
+                        <div class="timeline-materials">
+                            <span class="material-tag"><i class="fas fa-camera"></i> Registro fotográfico</span>
+                            <span class="material-tag"><i class="fas fa-microphone"></i> Testimonios</span>
+                            <span class="material-tag"><i class="fas fa-clipboard-check"></i> Validación</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker phase3-grad">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge">FASE 3</div>
+                        <h3>Desarrollo y Ejecución</h3>
+                        <p class="timeline-date"><i class="fas fa-calendar"></i> Abril 2026</p>
+                        <p>Implementación de las actividades planificadas, talleres jurídicos, asesorías individuales, y trabajo directo con la comunidad. Documentación exhaustiva del proceso.</p>
+                        <div class="timeline-materials">
+                            <span class="material-tag"><i class="fas fa-video"></i> Videos proceso</span>
+                            <span class="material-tag"><i class="fas fa-balance-scale"></i> Marco legal</span>
+                            <span class="material-tag"><i class="fas fa-chalkboard-user"></i> Talleres</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker phase4-grad">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge">FASE 4</div>
+                        <h3>Sistematización y Legado</h3>
+                        <p class="timeline-date"><i class="fas fa-calendar"></i> Abril 2026</p>
+                        <p>Creación de esta plataforma web, compilación de materiales, sistematización de la experiencia y preparación del legado para futuras cortes de estudiantes.</p>
+                        <div class="timeline-materials">
+                            <span class="material-tag"><i class="fas fa-code"></i> Desarrollo web</span>
+                            <span class="material-tag"><i class="fas fa-book"></i> Sistematización</span>
+                            <span class="material-tag"><i class="fas fa-seedling"></i> Legado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA DE MATERIALES -->
+    <section class="materials-gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-folder-open"></i> MATERIALES</span>
+                <h2>Documentación del proceso</h2>
+                <p class="section-desc">Fotografías, videos, documentos legales y publicaciones que testimonian cada momento de este proyecto.</p>
+            </div>
+
+            <div class="materials-tabs">
+                <button class="material-tab active-tab" data-category="fotos" onclick="showMaterials('fotos')">
+                    <i class="fas fa-camera"></i> Fotografías
+                </button>
+                <button class="material-tab" data-category="videos" onclick="showMaterials('videos')">
+                    <i class="fas fa-video"></i> Videos
+                </button>
+                <button class="material-tab" data-category="documentos" onclick="showMaterials('documentos')">
+                    <i class="fas fa-file-alt"></i> Documentos
+                </button>
+                <button class="material-tab" data-category="publicaciones" onclick="showMaterials('publicaciones')">
+                    <i class="fas fa-newspaper"></i> Publicaciones
+                </button>
+            </div>
+
+            <div class="materials-content">
+                <!-- FOTOGRAFÍAS -->
+                <div id="materials-fotos" class="materials-section active-materials">
+                    <div class="materials-grid" id="fotosGrid">
+                        <!-- Se llenarán dinámicamente -->
+                    </div>
+                    <div class="upload-area">
+                        <div class="upload-box">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h4>Agregar más fotografías</h4>
+                            <p>Arrastra aquí tus imágenes del proyecto o haz clic para seleccionar</p>
+                            <button class="btn-upload">Seleccionar archivos</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEOS -->
+                <div id="materials-videos" class="materials-section">
+                    <div class="materials-grid" id="videosGrid">
+                        <!-- Se llenarán dinámicamente -->
+                    </div>
+                    <div class="upload-area">
+                        <div class="upload-box">
+                            <i class="fas fa-video"></i>
+                            <h4>Agregar videos</h4>
+                            <p>Sube videos del proceso, entrevistas o actividades realizadas</p>
+                            <button class="btn-upload">Seleccionar videos</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOCUMENTOS -->
+                <div id="materials-documentos" class="materials-section">
+                    <div class="documents-list">
+                        <div class="doc-item">
+                            <div class="doc-icon legal-doc"><i class="fas fa-balance-scale"></i></div>
+                            <div class="doc-info">
+                                <h4>Marco Legal del Proyecto</h4>
+                                <p>Constitución Nacional, leyes orgánicas y normativas aplicables</p>
+                                <span class="doc-meta">PDF • 2.3 MB • Actualizado</span>
+                            </div>
+                            <button class="doc-btn"><i class="fas fa-download"></i></button>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-icon proposal-doc"><i class="fas fa-file-contract"></i></div>
+                            <div class="doc-info">
+                                <h4>Propuesta Inicial del Proyecto</h4>
+                                <p>Documento base con objetivos, metodología y cronograma</p>
+                                <span class="doc-meta">DOCX • 1.8 MB • Marzo 2026</span>
+                            </div>
+                            <button class="doc-btn"><i class="fas fa-download"></i></button>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-icon report-doc"><i class="fas fa-chart-line"></i></div>
+                            <div class="doc-info">
+                                <h4>Informe de Avance</h4>
+                                <p>Resultados parciales y evaluación del impacto comunitario</p>
+                                <span class="doc-meta">PDF • 3.1 MB • Abril 2026</span>
+                            </div>
+                            <button class="doc-btn"><i class="fas fa-download"></i></button>
+                        </div>
+                    </div>
+                    <div class="upload-area">
+                        <div class="upload-box">
+                            <i class="fas fa-file-upload"></i>
+                            <h4>Subir documentos</h4>
+                            <p>Leyes, reglamentos, informes o cualquier documento relevante</p>
+                            <button class="btn-upload">Seleccionar documentos</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PUBLICACIONES -->
+                <div id="materials-publicaciones" class="materials-section">
+                    <div class="publications-grid">
+                        <div class="pub-item">
+                            <div class="pub-image">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                            <div class="pub-content">
+                                <span class="pub-type">Artículo Académico</span>
+                                <h4>Proyecto Comunitario UBV en Las Luces del Cementerio</h4>
+                                <p>Análisis del impacto social y jurídico del trabajo realizado por estudiantes de la Universidad Bolivariana.</p>
+                                <div class="pub-meta">
+                                    <span><i class="fas fa-user"></i> Ismael Zambrano</span>
+                                    <span><i class="fas fa-calendar"></i> Abril 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pub-item">
+                            <div class="pub-image">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="pub-content">
+                                <span class="pub-type">Memoria del Proyecto</span>
+                                <h4>Sistematización de la Experiencia Comunitaria</h4>
+                                <p>Documento que recoge aprendizajes, metodologías y recomendaciones para futuros proyectos similares.</p>
+                                <div class="pub-meta">
+                                    <span><i class="fas fa-users"></i> Equipo UBV 2301-N</span>
+                                    <span><i class="fas fa-calendar"></i> Abril 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upload-area">
+                        <div class="upload-box">
+                            <i class="fas fa-pen-alt"></i>
+                            <h4>Compartir publicación</h4>
+                            <p>Artículos, ensayos o reflexiones sobre el proyecto</p>
+                            <button class="btn-upload">Agregar publicación</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACTO Y LOGROS -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-chart-line"></i> IMPACTO</span>
+                <h2>Logros alcanzados</h2>
+                <p class="section-desc">Resultados tangibles del trabajo realizado en beneficio de la comunidad.</p>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-number">45+</div>
+                    <div class="impact-label">Familias atendidas</div>
+                    <p>Asesorías jurídicas directas a vecinos de la comunidad</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">12</div>
+                    <div class="impact-label">Talleres realizados</div>
+                    <p>Capacitaciones en derechos, deberes y procedimientos legales</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">8</div>
+                    <div class="impact-label">Casos resueltos</div>
+                    <p>Situaciones comunitarias gestionadas exitosamente</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">100%</div>
+                    <div class="impact-label">Satisfacción</div>
+                    <p>Evaluación positiva por parte de la comunidad</p>
+                </div>
+            </div>
+
+            <div class="testimonials">
+                <h3>Testimonios de la comunidad</h3>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Los estudiantes de la UBV llegaron con mucho respeto y conocimiento. Nos ayudaron a entender nuestros derechos y cómo ejercerlos."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>María González</strong>
+                            <span>Líder Comunitaria</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Este proyecto cambió la forma en que vemos la universidad. Ahora sabemos que están aquí para apoyarnos de verdad."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Carlos Mendoza</strong>
+                            <span>Jefe de Calle</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REFLEXIONES FINALES -->
+    <section class="reflections-section">
+        <div class="container">
+            <div class="reflection-card">
+                <div class="reflection-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="reflection-content">
+                    <h2>Reflexiones del equipo</h2>
+                    <blockquote>
+                        "Este proyecto nos enseñó que el verdadero derecho se construye en las calles, con la gente, escuchando sus necesidades y trabajando juntos por soluciones reales. La academia cobra sentido cuando se pone al servicio de la comunidad."
+                    </blockquote>
+                    <cite>— Equipo UBV Sección 2301-N</cite>
+                    <div class="bible-verse">
+                        <i class="fas fa-dove"></i> Proverbios 27:17 · "El hierro se afila con hierro, y el hombre en el trato con el hombre"
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+<!-- FIN PÁGINA EL PROYECTO -->
+
+
+<!-- ===================== PÁGINA: AGRADECIMIENTO UBV ===================== -->
+<div id="page-agradecimiento" class="page">
+
+    <section class="page-hero agradecimiento-hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <span class="badge"><i class="fas fa-university"></i> RECONOCIMIENTO INSTITUCIONAL</span>
+            <h1 class="page-title">Gracias, <span class="highlight-gradient">UBV</span></h1>
+            <p class="page-subtitle">Un reconocimiento sincero a la Universidad Bolivariana de Venezuela por su invaluable aporte a esta comunidad.</p>
+        </div>
+    </section>
+
+    <section class="thanks-section">
+        <div class="container">
+
+            <!-- CARTA DE AGRADECIMIENTO -->
+            <div class="thanks-letter">
+                <div class="letter-header">
+                    <img src="ubv.png" alt="UBV" class="letter-logo" onerror="this.style.display='none'">
+                    <div>
+                        <h3>Carta de Agradecimiento</h3>
+                        <p>De la Comunidad Las Luces del Cementerio a la UBV</p>
+                    </div>
+                </div>
+                <div class="letter-body">
+                    <p>Estimada <strong>Universidad Bolivariana de Venezuela</strong>,</p>
+                    <br>
+                    <p>Con profundo respeto y gratitud, la comunidad <strong>Las Luces del Cementerio</strong> desea expresar su más sincero agradecimiento por la presencia, el compromiso y la dedicación demostrada a través de este proyecto comunitario.</p>
+                    <br>
+                    <p>Sus estudiantes llegaron a nuestras calles no solo con conocimientos jurídicos, sino con humanidad, escucha activa y voluntad de servicio. Cada visita, cada conversación y cada acción realizada dejó una huella positiva en nuestra comunidad.</p>
+                    <br>
+                    <p>Esta página web es el testimonio vivo de ese trabajo conjunto. La dejamos como legado para que futuras generaciones de estudiantes y vecinos puedan continuar construyendo juntos un mejor mañana.</p>
+                    <br>
+                    <p>Gracias por creer en nosotros. Gracias por estar aquí.</p>
+                </div>
+                <div class="letter-signature">
+                    <i class="fas fa-pen-fancy"></i>
+                    <span>Comunidad Las Luces del Cementerio · 2026</span>
+                </div>
+            </div>
+
+            <!-- RECONOCIMIENTOS INDIVIDUALES -->
+            <div class="section-header" style="margin-top: 4rem;">
+                <span class="section-tag"><i class="fas fa-award"></i> RECONOCIMIENTOS</span>
+                <h2>Quienes hicieron posible este proyecto</h2>
+            </div>
+
+            <div class="recognition-grid">
+                <div class="recog-card">
+                    <div class="recog-avatar blue-grad"><i class="fas fa-chalkboard-user"></i></div>
+                    <h4>Prof. Yajaira Prim</h4>
+                    <span class="recog-role">Docente Guía · Decana de Jurídica</span>
+                    <p>Su dedicación, paciencia y sabiduría fueron el faro que guió a cada estudiante durante este proceso. Un ejemplo de vocación y compromiso.</p>
+                </div>
+                <div class="recog-card">
+                    <div class="recog-avatar teal-grad"><i class="fas fa-user-graduate"></i></div>
+                    <h4>Ismael Zambrano</h4>
+                    <span class="recog-role">Coordinador · Sección 2301-N</span>
+                    <p>Líder del equipo, impulsor de esta iniciativa digital y puente entre la universidad y la comunidad. Su visión hizo posible este legado.</p>
+                </div>
+                <div class="recog-card">
+                    <div class="recog-avatar gold-grad"><i class="fas fa-users"></i></div>
+                    <h4>Daniel Rivas & Romer Villanueva</h4>
+                    <span class="recog-role">Estudiantes · Sección 2301-N</span>
+                    <p>Compañeros incansables que trabajaron con entrega y compromiso. Su esfuerzo es parte fundamental de este proyecto.</p>
+                </div>
+                <div class="recog-card">
+                    <div class="recog-avatar purple-grad"><i class="fas fa-university"></i></div>
+                    <h4>UBV · Sede Los Chaguaramos</h4>
+                    <span class="recog-role">Institución · Caracas, Venezuela</span>
+                    <p>Por brindar educación gratuita, de calidad y con conciencia social. Por formar no solo abogados, sino ciudadanos comprometidos.</p>
+                </div>
+            </div>
+
+            <!-- VALORES UBV -->
+            <div class="values-section">
+                <div class="section-header" style="margin-top: 4rem;">
+                    <span class="section-tag"><i class="fas fa-star"></i> VALORES</span>
+                    <h2>Lo que nos une</h2>
+                </div>
+                <div class="values-grid">
+                    <div class="value-item"><i class="fas fa-balance-scale"></i><span>Justicia Social</span></div>
+                    <div class="value-item"><i class="fas fa-hands-holding-heart"></i><span>Solidaridad</span></div>
+                    <div class="value-item"><i class="fas fa-book-open"></i><span>Educación</span></div>
+                    <div class="value-item"><i class="fas fa-seedling"></i><span>Compromiso</span></div>
+                    <div class="value-item"><i class="fas fa-handshake"></i><span>Comunidad</span></div>
+                    <div class="value-item"><i class="fas fa-dove"></i><span>Paz</span></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+<!-- FIN PÁGINA AGRADECIMIENTO -->
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="container footer-inner">
+        <div class="footer-logo">
+            <img src="ubv.png" alt="UBV" onerror="this.style.display='none'">
+            <div>
+                <strong>UBV · Estudios Jurídicos</strong>
+                <span>Sede Los Chaguaramos · Caracas</span>
+            </div>
+        </div>
+        <p class="footer-copy"><i class="far fa-copyright"></i> 2026 · Universidad Bolivariana de Venezuela — Proyecto Comunitario Las Luces del Cementerio</p>
+        <div class="footer-nav">
+            <a href="#" onclick="showPage('inicio')">Inicio</a>
+            <a href="#" onclick="showPage('comunidad')">Comunidad</a>
+            <a href="#" onclick="showPage('proyecto')">El Proyecto</a>
+            <a href="#" onclick="showPage('agradecimiento')">Agradecimiento</a>
+        </div>
+    </div>
+</footer>
+
+<!-- TOAST NOTIFICATION -->
+<div id="toast" class="toast"></div>
+
+<script>
+// ── Navegación entre páginas ──
+function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+    document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active-link'));
+
+    const target = document.getElementById('page-' + pageId);
+    if (target) {
+        target.classList.add('active-page');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const activeLink = document.querySelector('[data-page="' + pageId + '"]');
+    if (activeLink) activeLink.classList.add('active-link');
+
+    // Cerrar menú móvil
+    document.getElementById('navLinks').classList.remove('open');
+    return false;
+}
+
+// ── Scroll a sección dentro de la página actual ──
+function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── Hamburger menú ──
+document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+});
+
+// ── Galería dinámica ──
+const galleryItems = [
+    { title: "Trabajo en campo", icon: "fas fa-users" },
+    { title: "Reunión comunitaria", icon: "fas fa-people-group" },
+    { title: "Asesoría jurídica", icon: "fas fa-scale-balanced" },
+    { title: "Socialización del proyecto", icon: "fas fa-chalkboard-user" },
+    { title: "Encuentro vecinal", icon: "fas fa-handshake" },
+    { title: "Equipo UBV", icon: "fas fa-graduation-cap" }
+];
+
+const grid = document.getElementById('galleryGrid');
+if (grid) {
+    galleryItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'gallery-card';
+        card.innerHTML = `
+            <div class="gallery-img">
+                <i class="${item.icon}"></i>
+            </div>
+            <div class="gallery-caption"><i class="fas fa-image"></i> ${item.title}</div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+// ── Materiales del proyecto ──
+function showMaterials(category) {
+    // Actualizar tabs
+    document.querySelectorAll('.material-tab').forEach(tab => tab.classList.remove('active-tab'));
+    document.querySelector(`[data-category="${category}"]`).classList.add('active-tab');
+    
+    // Mostrar sección correspondiente
+    document.querySelectorAll('.materials-section').forEach(section => section.classList.remove('active-materials'));
+    document.getElementById(`materials-${category}`).classList.add('active-materials');
+    
+    // Cargar contenido específico
+    if (category === 'fotos') loadPhotos();
+    if (category === 'videos') loadVideos();
+}
+
+function loadPhotos() {
+    const fotosGrid = document.getElementById('fotosGrid');
+    if (!fotosGrid || fotosGrid.children.length > 0) return;
+    
+    const fotos = [
+        { name: "Primera visita comunitaria", date: "Marzo 2026", type: "Acercamiento" },
+        { name: "Taller de derechos", date: "Marzo 2026", type: "Capacitación" },
+        { name: "Asesoría individual", date: "Abril 2026", type: "Atención directa" },
+        { name: "Reunión con líderes", date: "Abril 2026", type: "Coordinación" },
+        { name: "Actividad grupal", date: "Abril 2026", type: "Integración" },
+        { name: "Equipo de trabajo", date: "Abril 2026", type: "Equipo UBV" }
+    ];
+    
+    fotos.forEach(foto => {
+        const item = document.createElement('div');
+        item.className = 'material-item photo-item';
+        item.innerHTML = `
+            <div class="material-preview">
+                <i class="fas fa-image"></i>
+            </div>
+            <div class="material-info">
+                <h4>${foto.name}</h4>
+                <p>${foto.type}</p>
+                <span class="material-date">${foto.date}</span>
+            </div>
+            <button class="material-action" onclick="viewPhoto('${foto.name}')">
+                <i class="fas fa-eye"></i>
+            </button>
+        `;
+        fotosGrid.appendChild(item);
+    });
+}
+
+function loadVideos() {
+    const videosGrid = document.getElementById('videosGrid');
+    if (!videosGrid || videosGrid.children.length > 0) return;
+    
+    const videos = [
+        { name: "Presentación del proyecto", duration: "3:45", type: "Introducción" },
+        { name: "Entrevista líder comunitario", duration: "8:20", type: "Testimonio" },
+        { name: "Taller en acción", duration: "12:15", type: "Actividad" },
+        { name: "Reflexiones del equipo", duration: "5:30", type: "Evaluación" }
+    ];
+    
+    videos.forEach(video => {
+        const item = document.createElement('div');
+        item.className = 'material-item video-item';
+        item.innerHTML = `
+            <div class="material-preview video-preview">
+                <i class="fas fa-play"></i>
+                <span class="video-duration">${video.duration}</span>
+            </div>
+            <div class="material-info">
+                <h4>${video.name}</h4>
+                <p>${video.type}</p>
+            </div>
+            <button class="material-action" onclick="playVideo('${video.name}')">
+                <i class="fas fa-play"></i>
+            </button>
+        `;
+        videosGrid.appendChild(item);
+    });
+}
+
+function viewPhoto(name) {
+    showToast(`Visualizando: ${name}`);
+}
+
+function playVideo(name) {
+    showToast(`Reproduciendo: ${name}`);
+}
+
+// ── FAQ toggle ──
+function toggleFaq(el) {
+    el.classList.toggle('open');
+}
+
+// ── Formularios ──
+function submitForm(e, type) {
+    e.preventDefault();
+    const msgs = {
+        buzon: '¡Mensaje enviado! Los representantes se comunicarán contigo pronto.',
+        cita: '¡Cita solicitada! Te confirmaremos la fecha a la brevedad.'
+    };
+    showToast(msgs[type] || 'Enviado correctamente.');
+    e.target.reset();
+}
+
+function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+}
+</script>
+</body>
+</html>
