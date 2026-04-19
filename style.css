@@ -1228,3 +1228,188 @@ footer {
     
     .impact-grid { grid-template-columns: repeat(2, 1fr); }
 }
+/* ============================================================
+   SECCIÓN CONTÁCTANOS - PÁGINA AGRADECIMIENTO
+   ============================================================ */
+
+.contact-section { 
+    padding: 5rem 0; 
+    background: linear-gradient(135deg, #f4f9fe 0%, #e8f3fb 100%); 
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.contact-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(28,109,158,.08);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transition: var(--transition);
+}
+
+.tiktok-card::before { background: linear-gradient(90deg, #ff0050, #ff4081); }
+.instagram-card::before { background: linear-gradient(90deg, #833ab4, #fd1d1d, #fcb045); }
+.email-card::before { background: linear-gradient(90deg, #ea4335, #34a853, #fbbc05, #4285f4); }
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    position: relative;
+}
+
+.tiktok-card .contact-icon { 
+    background: linear-gradient(135deg, #ff0050, #ff4081); 
+    color: white;
+}
+.instagram-card .contact-icon { 
+    background: linear-gradient(135deg, #833ab4, #fd1d1d); 
+    color: white;
+}
+.email-card .contact-icon { 
+    background: linear-gradient(135deg, #ea4335, #4285f4); 
+    color: white;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.contact-info h3 {
+    color: var(--blue-dark);
+    margin-bottom: .8rem;
+    font-size: 1.4rem;
+}
+
+.contact-info p {
+    color: var(--text-soft);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .8rem 1.8rem;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .95rem;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.tiktok-btn {
+    background: linear-gradient(95deg, #ff0050, #ff4081);
+    color: white;
+}
+.tiktok-btn:hover {
+    background: white;
+    color: #ff0050;
+    border-color: #ff0050;
+}
+
+.instagram-btn {
+    background: linear-gradient(95deg, #833ab4, #fd1d1d);
+    color: white;
+}
+.instagram-btn:hover {
+    background: white;
+    color: #833ab4;
+    border-color: #833ab4;
+}
+
+.email-btn {
+    background: linear-gradient(95deg, #ea4335, #4285f4);
+    color: white;
+}
+.email-btn:hover {
+    background: white;
+    color: #ea4335;
+    border-color: #ea4335;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,.15);
+}
+
+.contact-footer {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.contact-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--blue-mid);
+}
+
+.contact-message i {
+    font-size: 1.5rem;
+    color: #ff6b6b;
+}
+
+.contact-message p {
+    color: var(--text-mid);
+    font-size: 1.05rem;
+    margin: 0;
+    max-width: 600px;
+}
+
+/* Responsive para sección contacto */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-card {
+        padding: 2rem;
+    }
+    
+    .contact-message {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
