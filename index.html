@@ -150,7 +150,7 @@
             <div class="section-header">
                 <span class="section-tag"><i class="fas fa-camera"></i> GALERÍA</span>
                 <h2>Momentos del Proyecto</h2>
-                <p class="section-desc">Imágenes que capturan el trabajo, la dedicación y el encuentro entre la UBV y la comunidad.</p>
+                <p class="section-desc">Fotografías y videos que capturan el trabajo, la dedicación y el encuentro entre la UBV y la comunidad.</p>
             </div>
             <div class="gallery-grid" id="galleryGrid"></div>
         </div>
@@ -292,7 +292,7 @@
         <div class="hero-overlay"></div>
         <div class="container">
             <span class="badge"><i class="fas fa-road"></i> PROCESO DE CONSTRUCCIÓN</span>
-            <h1 class="page-title">El <span class="highlight-gradient">Proyecto</span></h1>
+            <h1 class="page-title project-title"><span class="highlight-gradient">Orientación socio jurídica a los miembros del Consejo Comunal Vencedores de las Luces en la conformación de los jueces de paz comunal</span></h1>
             <p class="page-subtitle">Un recorrido por cada etapa, cada esfuerzo y cada momento que hizo posible este trabajo al servicio de VENCEDORES DE LAS LUCES, comunidad ubicada en la calle Las Luces del Cementerio.</p>
         </div>
     </section>
@@ -405,15 +405,16 @@
                 <!-- FOTOGRAFÍAS -->
                 <div id="materials-fotos" class="materials-section active-materials">
                     <div class="materials-grid" id="fotosGrid">
-                        <!-- Se llenarán dinámicamente -->
                     </div>
                     <div class="upload-area">
-                        <div class="upload-box">
+                        <label class="upload-box photo-upload-box" for="photoFiles">
                             <i class="fas fa-cloud-upload-alt"></i>
-                            <h4>Agregar más fotografías</h4>
-                            <p>Arrastra aquí tus imágenes del proyecto o haz clic para seleccionar</p>
-                            <button class="btn-upload">Seleccionar archivos</button>
-                        </div>
+                            <h4>Agregar fotografías</h4>
+                            <p>Selecciona varias imágenes para guardarlas en este navegador y agregarlas a la galería.</p>
+                            <span class="btn-upload">Seleccionar imágenes</span>
+                            <input class="photo-file-input" id="photoFiles" type="file" accept="image/*" multiple onchange="addPhotos(event)">
+                        </label>
+                        <p class="photo-upload-note">Las imágenes guardadas estarán disponibles al volver a abrir esta página en este navegador.</p>
                     </div>
                 </div>
 
@@ -799,7 +800,7 @@
             <div class="contact-grid">
                 <div class="contact-card tiktok-card">
                     <div class="contact-icon">
-                        <img src="./Tiktok.png" alt="TikTok" class="social-icon" onerror="this.parentElement.innerHTML='<i class=\'fab fa-tiktok\'></i>'">
+                        <img src="Tiktok.png" alt="TikTok" class="social-icon" onerror="this.parentElement.innerHTML='<i class=\'fab fa-tiktok\'></i>'">
                     </div>
                     <div class="contact-info">
                         <h3>TikTok</h3>
@@ -812,7 +813,7 @@
 
                 <div class="contact-card instagram-card">
                     <div class="contact-icon">
-                        <img src="./instagram.png" alt="Instagram" class="social-icon" onerror="this.parentElement.innerHTML='<i class=\'fab fa-instagram\'></i>'">
+                        <img src="instagram.png" alt="Instagram" class="social-icon" onerror="this.parentElement.innerHTML='<i class=\'fab fa-instagram\'></i>'">
                     </div>
                     <div class="contact-info">
                         <h3>Instagram</h3>
@@ -825,7 +826,7 @@
 
                 <div class="contact-card email-card">
                     <div class="contact-icon">
-                        <img src="./Gmail-1.png" alt="Gmail" class="social-icon" onerror="this.parentElement.innerHTML='<i class=\'fas fa-envelope\'></i>'">
+                        <img src="Gmail-1.png" alt="Gmail" class="social-icon" onerror="this.parentElement.innerHTML='<i class=\'fas fa-envelope\'></i>'">
                     </div>
                     <div class="contact-info">
                         <h3>Correo Electrónico</h3>
@@ -883,6 +884,7 @@ function showPage(pageId) {
         target.classList.add('active-page');
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    if (pageId === 'proyecto') loadPhotos();
 
     const activeLink = document.querySelector('[data-page="' + pageId + '"]');
     if (activeLink) activeLink.classList.add('active-link');
@@ -905,12 +907,33 @@ document.getElementById('hamburger').addEventListener('click', () => {
 
 // ── Galería dinámica ──
 const galleryItems = [
-    { title: "Trabajo en campo", icon: "fas fa-users" },
-    { title: "Reunión comunitaria", icon: "fas fa-people-group" },
-    { title: "Asesoría jurídica", icon: "fas fa-scale-balanced" },
-    { title: "Socialización del proyecto", icon: "fas fa-chalkboard-user" },
-    { title: "Encuentro vecinal", icon: "fas fa-handshake" },
-    { title: "Equipo UBV", icon: "fas fa-graduation-cap" }
+    {
+        title: "Trabajo en campo",
+        type: "image",
+        src: "fotos%20demografia/Multimedia%20para%20la%20WEB/Material%20listo%20para%20la%20web/Trabajo%20de%20Campo.jpeg"
+    },
+    {
+        title: "Reunión comunitaria",
+        type: "video",
+        src: "fotos%20demografia/Multimedia%20para%20la%20WEB/Material%20listo%20para%20la%20web/Vid-18042026.mp4",
+        poster: "fotos%20demografia/Multimedia%20para%20la%20WEB/Material%20listo%20para%20la%20web/equipo%20UBV.jpeg"
+    },
+    { title: "Talleres", icon: "fas fa-chalkboard-user" },
+    {
+        title: "Socialización del proyecto",
+        type: "image",
+        src: "fotos%20demografia/Multimedia%20para%20la%20WEB/Material%20listo%20para%20la%20web/Dise%C3%B1o%20sin%20t%C3%ADtulo.png"
+    },
+    {
+        title: "Encuentro vecinal",
+        type: "image",
+        src: "fotos%20demografia/Multimedia%20para%20la%20WEB/Material%20listo%20para%20la%20web/encuentro%20comunidad.jpeg"
+    },
+    {
+        title: "Equipo UBV",
+        type: "image",
+        src: "fotos%20demografia/Multimedia%20para%20la%20WEB/Material%20listo%20para%20la%20web/equipo%20UBV.jpeg"
+    }
 ];
 
 const grid = document.getElementById('galleryGrid');
@@ -918,17 +941,103 @@ if (grid) {
     galleryItems.forEach(item => {
         const card = document.createElement('div');
         card.className = 'gallery-card';
-        card.innerHTML = `
-            <div class="gallery-img">
-                <i class="${item.icon}"></i>
-            </div>
-            <div class="gallery-caption"><i class="fas fa-image"></i> ${item.title}</div>
-        `;
+        const media = document.createElement('div');
+        media.className = 'gallery-img';
+
+        if (item.type === 'video') {
+            const video = document.createElement('video');
+            video.src = item.src;
+            video.poster = item.poster;
+            video.controls = true;
+            video.playsInline = true;
+            video.preload = 'metadata';
+            video.setAttribute('aria-label', item.title);
+            media.appendChild(video);
+        } else if (item.type === 'image') {
+            const image = document.createElement('img');
+            image.src = item.src;
+            image.alt = item.title;
+            image.loading = 'lazy';
+            media.appendChild(image);
+        } else {
+            const icon = document.createElement('i');
+            icon.className = item.icon;
+            media.appendChild(icon);
+        }
+
+        const caption = document.createElement('div');
+        caption.className = 'gallery-caption';
+        const captionIcon = document.createElement('i');
+        captionIcon.className = item.type === 'video' ? 'fas fa-video' : 'fas fa-image';
+        caption.append(captionIcon, document.createTextNode(` ${item.title}`));
+        card.append(media, caption);
         grid.appendChild(card);
     });
 }
 
 // ── Materiales del proyecto ──
+const PHOTO_DATABASE_NAME = 'soyubv-materiales';
+const PHOTO_STORE_NAME = 'fotografias';
+let photoDatabasePromise;
+let photosLoadPromise;
+
+function openPhotoDatabase() {
+    if (!window.indexedDB) {
+        return Promise.reject(new Error('Este navegador no permite guardar imágenes localmente.'));
+    }
+    if (photoDatabasePromise) return photoDatabasePromise;
+
+    photoDatabasePromise = new Promise((resolve, reject) => {
+        const request = window.indexedDB.open(PHOTO_DATABASE_NAME, 1);
+        request.onupgradeneeded = () => {
+            if (!request.result.objectStoreNames.contains(PHOTO_STORE_NAME)) {
+                request.result.createObjectStore(PHOTO_STORE_NAME, { keyPath: 'id', autoIncrement: true });
+            }
+        };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error || new Error('No se pudo abrir el almacenamiento de imágenes.'));
+    });
+
+    photoDatabasePromise.catch(() => {
+        photoDatabasePromise = null;
+    });
+    return photoDatabasePromise;
+}
+
+function getSavedPhotos() {
+    return openPhotoDatabase().then(database => new Promise((resolve, reject) => {
+        const transaction = database.transaction(PHOTO_STORE_NAME, 'readonly');
+        const request = transaction.objectStore(PHOTO_STORE_NAME).getAll();
+        let photos = [];
+
+        request.onsuccess = () => {
+            photos = request.result;
+        };
+        transaction.oncomplete = () => resolve(photos);
+        transaction.onabort = () => reject(transaction.error || new Error('No se pudieron leer las imágenes guardadas.'));
+        transaction.onerror = () => reject(transaction.error || new Error('No se pudieron leer las imágenes guardadas.'));
+    }));
+}
+
+function savePhotos(files) {
+    return openPhotoDatabase().then(database => new Promise((resolve, reject) => {
+        const transaction = database.transaction(PHOTO_STORE_NAME, 'readwrite');
+        const store = transaction.objectStore(PHOTO_STORE_NAME);
+        const savedAt = new Date().toLocaleDateString('es-VE');
+        const photos = files.map(file => ({
+            name: file.name,
+            type: 'Fotografía',
+            date: `Guardada el ${savedAt}`,
+            blob: file
+        }));
+
+        photos.forEach(photo => store.add(photo));
+        transaction.oncomplete = () => resolve(photos);
+        transaction.onabort = () => reject(transaction.error || new Error('No se pudieron guardar las imágenes.'));
+        transaction.onerror = () => reject(transaction.error || new Error('No se pudieron guardar las imágenes.'));
+    }));
+}
+
 function showMaterials(category) {
     // Actualizar tabs
     document.querySelectorAll('.material-tab').forEach(tab => tab.classList.remove('active-tab'));
@@ -945,35 +1054,106 @@ function showMaterials(category) {
 
 function loadPhotos() {
     const fotosGrid = document.getElementById('fotosGrid');
-    if (!fotosGrid || fotosGrid.children.length > 0) return;
-    
+    if (!fotosGrid || photosLoadPromise) return photosLoadPromise;
+
     const fotos = [
-        { name: "Primera visita comunitaria", date: "Marzo 2026", type: "Acercamiento" },
-        { name: "Taller de derechos", date: "Marzo 2026", type: "Capacitación" },
-        { name: "Asesoría individual", date: "Abril 2026", type: "Atención directa" },
-        { name: "Reunión con líderes", date: "Abril 2026", type: "Coordinación" },
-        { name: "Actividad grupal", date: "Abril 2026", type: "Integración" },
-        { name: "Equipo de trabajo", date: "Abril 2026", type: "Equipo UBV" }
+        {
+            id: "mapa-demografico",
+            name: "Mapa demográfico de la comunidad",
+            date: "Vencedores de las Luces",
+            type: "Distribución de los sectores",
+            src: "fotos%20demografia/Multimedia%20para%20la%20WEB/Material%20listo%20para%20la%20web/Mapa%20Demografia.jpeg"
+        }
     ];
     
     fotos.forEach(foto => {
-        const item = document.createElement('div');
-        item.className = 'material-item photo-item';
-        item.innerHTML = `
-            <div class="material-preview">
-                <i class="fas fa-image"></i>
-            </div>
-            <div class="material-info">
-                <h4>${foto.name}</h4>
-                <p>${foto.type}</p>
-                <span class="material-date">${foto.date}</span>
-            </div>
-            <button class="material-action" onclick="viewPhoto('${foto.name}')">
-                <i class="fas fa-eye"></i>
-            </button>
-        `;
-        fotosGrid.appendChild(item);
+        if (!fotosGrid.querySelector(`[data-photo-id="${foto.id}"]`)) addPhotoCard(foto);
     });
+    photosLoadPromise = getSavedPhotos().then(savedPhotos => {
+        savedPhotos.forEach(foto => addPhotoCard({
+            name: foto.name,
+            date: foto.date,
+            type: foto.type,
+            src: URL.createObjectURL(foto.blob)
+        }));
+    }).catch(error => {
+        console.error('Error al cargar las fotografías guardadas:', error);
+        showToast('No se pudieron cargar las fotografías guardadas.');
+        photosLoadPromise = null;
+    });
+    return photosLoadPromise;
+}
+
+async function addPhotos(event) {
+    const input = event.currentTarget;
+    const files = Array.from(input.files || []);
+    const imageFiles = files.filter(file => file.type.startsWith('image/'));
+    const rejectedCount = files.length - imageFiles.length;
+    let savedCount = 0;
+    let saveFailed = false;
+    input.value = '';
+
+    if (imageFiles.length > 0) {
+        try {
+            await loadPhotos();
+            const savedPhotos = await savePhotos(imageFiles);
+            savedCount = savedPhotos.length;
+            savedPhotos.forEach(foto => {
+                addPhotoCard({
+                    name: foto.name,
+                    date: foto.date,
+                    type: foto.type,
+                    src: URL.createObjectURL(foto.blob)
+                });
+            });
+        } catch (error) {
+            console.error('Error al guardar las fotografías:', error);
+            saveFailed = true;
+        }
+    }
+
+    if (saveFailed && rejectedCount > 0) {
+        showToast('No se pudieron guardar las imágenes y se omitieron archivos que no son imágenes.');
+    } else if (saveFailed) {
+        showToast('No se pudieron guardar las imágenes en este navegador.');
+    } else if (rejectedCount > 0) {
+        showToast(savedCount > 0
+            ? `Se guardaron ${savedCount} imágenes. Se omitieron archivos que no son imágenes.`
+            : 'Se omitieron archivos que no son imágenes.');
+    } else if (savedCount > 0) {
+        showToast(`${savedCount} ${savedCount === 1 ? 'imagen guardada' : 'imágenes guardadas'} en este navegador.`);
+    }
+}
+
+function addPhotoCard(foto) {
+    const fotosGrid = document.getElementById('fotosGrid');
+    if (!fotosGrid) return;
+
+    const item = document.createElement('div');
+    item.className = 'material-item photo-item';
+    if (foto.id) item.dataset.photoId = foto.id;
+
+    const preview = document.createElement('div');
+    preview.className = 'material-preview photo-preview';
+    const image = document.createElement('img');
+    image.src = foto.src;
+    image.alt = foto.name;
+    image.loading = 'lazy';
+    preview.appendChild(image);
+
+    const info = document.createElement('div');
+    info.className = 'material-info';
+    const title = document.createElement('h4');
+    title.textContent = foto.name;
+    const description = document.createElement('p');
+    description.textContent = foto.type;
+    const date = document.createElement('span');
+    date.className = 'material-date';
+    date.textContent = foto.date;
+    info.append(title, description, date);
+
+    item.append(preview, info);
+    fotosGrid.appendChild(item);
 }
 
 function loadVideos() {
